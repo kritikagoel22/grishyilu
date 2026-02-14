@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Grishit</title>
+<style>
+    body {
+        background: linear-gradient(to bottom right, #ff9ec4, #ffc3e6);
+        font-family: Arial, sans-serif;
+        text-align: center;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .card {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        position: relative;
+        max-width: 420px;
+    }
+
+    h1 {
+        color: #ff4d88;
+        margin-bottom: 20px;
+        line-height: 1.4;
+    }
+
+    p {
+        color: #555;
+        line-height: 1.5;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        margin: 10px;
+        transition: 0.2s;
+    }
+
+    #yesBtn {
+        background-color: #ff4d88;
+        color: white;
+    }
+
+    #yesBtn:hover {
+        background-color: #ff1a66;
+    }
+
+    #noBtn {
+        background-color: #ccc;
+        position: absolute;
+    }
+
+    .hearts {
+        position: fixed;
+        font-size: 20px;
+        animation: floatUp 3s linear forwards;
