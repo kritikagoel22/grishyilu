@@ -1,67 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Grishit</title>
+
 <style>
-    body {
-        background: linear-gradient(to bottom right, #ff9ec4, #ffc3e6);
-        font-family: Arial, sans-serif;
-        text-align: center;
-        height: 100vh;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, #ff9ec4, #ffc3e6);
+    font-family: Arial, sans-serif;
+}
 
-    .card {
-        background: white;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        position: relative;
-        max-width: 420px;
-    }
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: center;
+    max-width: 420px;
+    position: relative;
+}
 
-    h1 {
-        color: #ff4d88;
-        margin-bottom: 20px;
-        line-height: 1.4;
-    }
+h1 {
+    color: #ff4d88;
+    line-height: 1.4;
+}
 
-    p {
-        color: #555;
-        line-height: 1.5;
-    }
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-    button {
-        padding: 10px 20px;
-        font-size: 16px;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        margin: 10px;
-        transition: 0.2s;
-    }
+#yesBtn {
+    background: #ff4d88;
+    color: white;
+}
 
-    #yesBtn {
-        background-color: #ff4d88;
-        color: white;
-    }
+#noBtn {
+    background: #ccc;
+    position: relative;
+}
 
-    #yesBtn:hover {
-        background-color: #ff1a66;
-    }
+.hearts {
+    position: fixed;
+    font-size: 20px;
+    animation: floatUp 3s linear forwards;
+}
 
-    #noBtn {
-        background-color: #ccc;
-        position: absolute;
-    }
+@keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
 
-    .hearts {
-        position: fixed;
-        font-size: 20px;
-        animation: floatUp 3s linear forwards;
+<body>
+
+<div class="card" id="card">
+    <h1>
+        Grishit,<br>
+        will u be my Valentine<br>
+        and maybe do a movie date w me tmrw at 10:30pm? ;)
+    </h1>
+
+    <button id="yesBtn" onclick="sayYes()">Yes</button>
+    <button id="noBtn" onmouseover="moveButton()">No</button>
+</div>
+
+<script>
+function sayYes() {
+    document.getElementById("card").innerHTML = `
+        <h1>It’s official.</h1>
+        <p>
+            Online Movie Date Contract Activated.<br><br>
+            Time: 10:30pm<br>
+            Location: You. Me. Same screen.<br>
+            Dress code: Naked.<br><br>
+            Final clause: No backing out now.
+        </p>
+        <br>
+        <button onclick="finalMessage()">Confirm Booking</button>
+    `;
+
+    for (let i = 0; i < 30; i++) {
+        let heart = document.createElement("div");
+        heart.className = "hearts";
+        heart.innerHTML = "♥";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.bottom = "0";
+        document.body.appendChild(heart);
+    }
+}
+
+function finalMessage() {
+    document.getElementById("card").innerHTML = `
+        <h1>Booked.</h1>
+        <p>
+            Good choice, Grishit.<br><br>
+            10:30pm. Don’t be late.<br>
+            I’ll be waiting.
+        </p>
+    `;
+}
+
+function moveButton() {
+    const btn = document.getElementById("noBtn");
+    btn.style.position = "absolute";
+    btn.style.left = Math.random() * 300 + "px";
+    btn.style.top = Math.random() * 200 + "px";
+}
+</script>
+
+</body>
+</html>
