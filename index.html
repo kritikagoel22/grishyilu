@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Grishit</title>
-
 <style>
 body {
     margin: 0;
@@ -15,110 +14,52 @@ body {
     background: linear-gradient(to bottom right, #ff9ec4, #ffc3e6);
     font-family: Arial, sans-serif;
 }
-
 .card {
     background: white;
-    padding: 40px;
+    padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     text-align: center;
-    max-width: 420px;
-    position: relative;
+    max-width: 400px;
 }
-
-h1 {
-    color: #ff4d88;
-    line-height: 1.4;
-}
-
 button {
-    padding: 10px 20px;
     margin: 10px;
+    padding: 10px 20px;
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    font-size: 16px;
 }
-
-#yesBtn {
-    background: #ff4d88;
-    color: white;
-}
-
-#noBtn {
-    background: #ccc;
-    position: relative;
-}
-
-.hearts {
-    position: fixed;
-    font-size: 20px;
-    animation: floatUp 3s linear forwards;
-}
-
-@keyframes floatUp {
-    from { transform: translateY(0); opacity: 1; }
-    to { transform: translateY(-100vh); opacity: 0; }
-}
+#yesBtn { background: #ff4d88; color: white; }
+#noBtn { background: #ccc; }
 </style>
 </head>
-
 <body>
-
 <div class="card" id="card">
     <h1>
-        Grishit,<br>
-        will u be my Valentine<br>
+        Grishit, will u be my Valentine  
         and maybe do a movie date w me tmrw at 10:30pm? ;)
     </h1>
-
     <button id="yesBtn" onclick="sayYes()">Yes</button>
-    <button id="noBtn" onmouseover="moveButton()">No</button>
+    <button id="noBtn" onmouseover="moveNo()">No</button>
 </div>
 
 <script>
 function sayYes() {
     document.getElementById("card").innerHTML = `
-        <h1>It’s official.</h1>
+        <h1>Deal.</h1>
         <p>
-            Online Movie Date Contract Activated.<br><br>
-            Time: 10:30pm<br>
-            Location: You. Me. Same screen.<br>
-            Dress code: Naked.<br><br>
-            Final clause: No backing out now.
-        </p>
-        <br>
-        <button onclick="finalMessage()">Confirm Booking</button>
-    `;
-
-    for (let i = 0; i < 30; i++) {
-        let heart = document.createElement("div");
-        heart.className = "hearts";
-        heart.innerHTML = "♥";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.bottom = "0";
-        document.body.appendChild(heart);
-    }
-}
-
-function finalMessage() {
-    document.getElementById("card").innerHTML = `
-        <h1>Booked.</h1>
-        <p>
-            Good choice, Grishit.<br><br>
-            10:30pm. Don’t be late.<br>
-            I’ll be waiting.
+            Online movie date confirmed. <br><br>
+            Time: 10:30pm <br>
+            Dress code: Naked. <br><br>
+            Don’t even think about backing out.
         </p>
     `;
 }
-
-function moveButton() {
+function moveNo() {
     const btn = document.getElementById("noBtn");
-    btn.style.position = "absolute";
-    btn.style.left = Math.random() * 300 + "px";
-    btn.style.top = Math.random() * 200 + "px";
+    btn.style.position = "relative";
+    btn.style.left = (Math.random() * 150) + "px";
+    btn.style.top = (Math.random() * 100 - 50) + "px";
 }
 </script>
-
 </body>
 </html>
